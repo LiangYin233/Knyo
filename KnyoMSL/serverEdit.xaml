@@ -1,0 +1,16 @@
+﻿<Window x:Class="KnyoMSL.serverEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KnyoMSL"
+        mc:Ignorable="d"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="Knyo" Height="500" Width="800" SizeToContent="WidthAndHeight" >
+    <Grid>
+        <Image Source="/路径 1.png" Margin="32,39,714,423" Width="54" Height="23"></Image>
+        <Border CornerRadius="15" Margin="20,84,20,22" Effect="{StaticResource EffectShadow5}" Background="White"/>
+        <TextBox x:Name="edit" VerticalContentAlignment="Top" HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" BorderBrush="#FF005737" VerticalAlignment="Top" Width="734" Height="286"/>
+        <Button x:Name="save" Content="保存" BorderBrush="#FF005737" Foreground="#FF005737" Margin="0,399,0,0" VerticalAlignment="Top" Width="170" Height="55" Click="Button_Click"/>
+    </Grid>
+</Window>

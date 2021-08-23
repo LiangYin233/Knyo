@@ -1,0 +1,29 @@
+﻿<Window x:Class="KnyoMSL.runServer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KnyoMSL"
+        mc:Ignorable="d"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="Knyo" Height="900" Width="1600" SizeToContent="WidthAndHeight" Closing="window_closing">
+    <Grid>
+        <Image Source="/路径 1.png" Margin="59,58,1487,804" Width="54" Height="23"></Image>
+        <Border CornerRadius="15" Margin="60,109,60,49" Effect="{StaticResource EffectShadow5}" Background="White" Height="727"/>
+        <TextBlock x:Name="server_RAM" Margin="95,131,1250,730" FontFamily="Source Han Sans CN Normal" Foreground="#FF005737" FontSize="15"><Run Text="当前设备内存总占用:"/><Run Language="zh-cn" Text=" 0MB"/></TextBlock>
+        <TextBlock Text="来自 Knyo官方 的信息" FontFamily="Source Han Sans CN Normal" Foreground="#FF005737" FontSize="15" Margin="97,179,1348,682"></TextBlock>
+        <Border BorderBrush="#FF005737" CornerRadius="5" BorderThickness="1" Margin="86,171,1259,413" Width="255">
+            <TextBlock x:Name="notice" TextWrapping = "Wrap" Text="信息" FontFamily="Source Han Sans CN Normal" Foreground="#FF005737" FontSize="15" Margin="10,37,10,9" Width="233"/>
+        </Border>
+        <Button x:Name="properties_edit" Content="编辑服务器配置文件" FontFamily="Source Han Sans CN Normal" FontSize="15" HorizontalAlignment="Left" Margin="86,493,0,0" VerticalAlignment="Top" Height="62" Width="255" BorderBrush="#FF005737" Background="White" Foreground="#FF005737" Click="properties_edit_click"/>
+
+
+        <TextBox VerticalContentAlignment="Top" x:Name="console_box" Margin="0,131,0,0" Width="880" Height="534" BorderBrush="#FF005737" VerticalAlignment="Top" HorizontalAlignment="Center" IsReadOnly="True"/>
+        <TextBox x:Name="console_box_input" Margin="0,670,0,0" Width="880" Height="28" BorderBrush="#FF005737" VerticalAlignment="Top" HorizontalAlignment="Center" KeyDown="console_box_input_KeyDown"/>
+
+
+        <Button x:Name="start_server" Content="启动服务器" FontFamily="Source Han Sans CN Normal" FontSize="15" HorizontalAlignment="Left" Margin="1336,753,0,0" VerticalAlignment="Top" Height="62" Width="169" BorderBrush="#FF005737" Background="White" Foreground="#FF005737" Click="start_server_click"/>
+        <Button x:Name="stop_server" Content="关闭服务器" Visibility="Hidden" FontFamily="Source Han Sans CN Normal" FontSize="15" HorizontalAlignment="Left" Margin="1336,753,0,0" VerticalAlignment="Top" Height="62" Width="169" BorderBrush="#FFE33544" Background="White" Foreground="#FFE33544" Click="stop_server_click"/>
+
+    </Grid>
+</Window>
