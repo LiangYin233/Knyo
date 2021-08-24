@@ -64,26 +64,35 @@ namespace KnyoMSL
 
         private void start_server_click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                
+                if (File.Exists("eula.txt"))
+                    File.WriteAllText("eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\neula = true");
+                else
+                {
+                    File.Create("eula.txt").Close();
+                    File.WriteAllText("eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\neula = true");
+                    
+                }
+            }
+            catch
+            {
+                MessageBox.Show("EULA同意失败，您可能需要通过手动更改来启动服务器。", "Knyo - 错误");
+            }
+
             this.Title = "Knyo - " + ss.serverName;
+            
             if (knyoM)
             {
                 ss.generateMknyo();
                 ss.creatStartBat();
-
             }
             else
             {
                 ss.creatStartBat();
             }
-            if (File.Exists("eula.txt"))
-            {
-                File.WriteAllText("eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\neula = true");
-            }
-            else
-            {
-                File.Create("eula.txt");
-                File.WriteAllText("eula.txt", "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\neula = true");
-            }
+
             p = new Process();
             startserver();
         }

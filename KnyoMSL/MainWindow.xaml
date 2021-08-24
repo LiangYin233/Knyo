@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KnyoMSL"
         mc:Ignorable="d"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        Title="Knyo" Height="900" Width="1600" SizeToContent="WidthAndHeight">
+        Title="Knyo" Height="900" Width="1600" SizeToContent="WidthAndHeight"  ResizeMode="CanMinimize">
     <Grid>
         <Image Source="/路径 1.png" Margin="59,58,1487,804" Width="54" Height="23"></Image>
         <Border CornerRadius="15" Margin="60,109,60,49" Effect="{StaticResource EffectShadow5}" Background="White" Height="727"/>
@@ -15,27 +15,21 @@
             <hc:TextBox x:Name="jar_path" Margin="23,57,456,10" BorderBrush="#005737" />
             <Button x:Name="jar_choose_button" Width="64" Content="选择" BorderBrush="#005737" HorizontalAlignment="Left" Margin="257,57,0,0" VerticalAlignment="Top" Foreground="#FF005737" Click="jar_choose_button_Click" Height="33"></Button>
         </Grid>
-        <Grid Width="703" Margin="60,679,837,107">
-            <TextBlock Margin="23,22,497,43"  FontFamily="Source Han Sans CN Medium" FontSize="20" Foreground="#FF005737"><Run Language="zh-cn" Text="额外的Java参数"/></TextBlock>
-            <hc:TextBox x:Name="other_args" Margin="23,61,430,6" BorderBrush="#005737" />
-
-        </Grid>
-        <Grid Width="703" Margin="60,201,837,326">
-            <TextBlock Margin="23,22,552,307"  FontFamily="Source Han Sans CN Medium" FontSize="20" Foreground="#FF005737"><Run Language="zh-cn" Text="内存分配"/></TextBlock>
-            <RadioButton x:Name="m_knyo" BorderBrush="#FF005737" Content="使用Knyo分配方案" HorizontalAlignment="Left" Margin="23,57,0,0" VerticalAlignment="Top" Checked="m_knyo_checked" Background="#FF005737" />
-            <RadioButton x:Name="m_diy" BorderBrush="#FF005737" Content="自定义内存分配方案" HorizontalAlignment="Left" Margin="23,80,0,0" VerticalAlignment="Top" Checked="m_diy_checked" Background="#FF005737" />
-            <TextBlock Margin="48,142,527,195"  FontFamily="Source Han Sans CN Normal" FontSize="15" Foreground="#FF005737"><Run Language="zh-cn" Text="最小值"/></TextBlock>
-            <hc:NumericUpDown x:Name="diy_max" Margin="104,138,509,189" Foreground="#FF005737" BorderBrush="#FF005737"/>
-            <TextBlock Margin="48,107,527,229"  FontFamily="Source Han Sans CN Normal" FontSize="15" Foreground="#FF005737"><Run Language="zh-cn" Text="最大值"/></TextBlock>
-            <hc:NumericUpDown x:Name="diy_min" Margin="104,103,509,225" Foreground="#FF005737" BorderBrush="#FF005737"/>
-        </Grid>
-        <Button x:Name="start_server_panel" Content="启动Knyo面板" FontFamily="Source Han Sans CN Normal" FontSize="15" HorizontalAlignment="Left" Margin="1336,753,0,0" VerticalAlignment="Top" Height="62" Width="169" BorderBrush="#FF005737" Background="White" Foreground="#FF005737" Click="start_server_panel_click"/>
-        <TextBlock x:Name="hitokoto" Text="By LiangYin" HorizontalAlignment="Left" Margin="60,857,0,0" VerticalAlignment="Top" Width="424" Foreground="#FFBDBDBD" FontFamily="Source Han Sans CN Normal" Opacity="0.5"/>
-        <Grid Width="703" Margin="60,387,837,399">
+        <Grid Width="703" Margin="60,201,837,585">
             <TextBlock Margin="23,22,552,43"  FontFamily="Source Han Sans CN Medium" FontSize="20" Foreground="#FF005737"><Run Language="zh-cn" Text="服务器名称"/></TextBlock>
             <hc:TextBox x:Name="server_name" Margin="23,57,456,10" BorderBrush="#005737" />
         </Grid>
-        <Grid Width="703" Margin="60,491,837,49">
+        <Grid Width="703" Margin="60,294,837,234">
+            <TextBlock Margin="23,22,552,307"  FontFamily="Source Han Sans CN Medium" FontSize="20" Foreground="#FF005737"><Run Language="zh-cn" Text="内存分配"/></TextBlock>
+            <RadioButton x:Name="m_knyo" BorderBrush="#FF005737" Content="使用Knyo分配方案" HorizontalAlignment="Left" Margin="23,57,0,0" VerticalAlignment="Top" Checked="m_knyo_checked" Background="#FF005737" />
+            <RadioButton x:Name="m_diy" BorderBrush="#FF005737" Content="自定义内存分配方案" HorizontalAlignment="Left" Margin="23,80,0,0" VerticalAlignment="Top" Checked="m_diy_checked" Background="#FF005737" />
+            <TextBlock Margin="48,107,527,230"  FontFamily="Source Han Sans CN Normal" FontSize="15" Foreground="#FF005737"><Run Language="zh-cn" Text="最小值"/></TextBlock>
+            <hc:NumericUpDown x:Name="diy_min" Margin="104,103,509,225" Foreground="#FF005737" BorderBrush="#FF005737"/>
+            <TextBlock Margin="48,142,527,195"  FontFamily="Source Han Sans CN Normal" FontSize="15" Foreground="#FF005737"><Run Language="zh-cn" Text="最大值"/></TextBlock>
+            <hc:NumericUpDown x:Name="diy_max" Margin="104,138,509,189" Foreground="#FF005737" BorderBrush="#FF005737"/>
+
+        </Grid>
+        <Grid Width="703" Margin="60,454,837,86">
             <TextBlock Margin="23,22,552,293"  FontFamily="Source Han Sans CN Medium" FontSize="20" Foreground="#FF005737"><Run Language="zh-cn" Text="Java选择"/></TextBlock>
             <RadioButton x:Name="java_system" BorderBrush="#FF005737" Content="使用系统环境变量所指定的Java" HorizontalAlignment="Left" Margin="23,57,0,0" VerticalAlignment="Top" Background="#FF005737" Checked="java_system_checked" />
             <RadioButton x:Name="java_diy" BorderBrush="#FF005737" Content="自定义Java路径" HorizontalAlignment="Left" Margin="23,80,0,0" VerticalAlignment="Top" Background="#FF005737" Checked="java_diy_checked" />
@@ -44,5 +38,11 @@
             <hc:ComboBox x:Name="choose_java" Margin="48,163,492,152" BorderBrush="#FF005737" Foreground="#FF005737"  />
             <Button x:Name="java_download" Width="56" Content="下载" BorderBrush="#005737" HorizontalAlignment="Left" Margin="216,163,0,0" VerticalAlignment="Top" Foreground="#FF005737" Height="30" Click="java_download_Click"></Button>
         </Grid>
+        <Grid Width="703" Margin="60,642,837,144">
+            <TextBlock Margin="23,22,497,43"  FontFamily="Source Han Sans CN Medium" FontSize="20" Foreground="#FF005737"><Run Language="zh-cn" Text="额外的Java参数"/></TextBlock>
+            <hc:TextBox x:Name="other_args" Margin="23,61,430,6" BorderBrush="#005737" />
+        </Grid>
+        <Button x:Name="start_server_panel" Content="启动Knyo面板" FontFamily="Source Han Sans CN Normal" FontSize="15" HorizontalAlignment="Left" Margin="1336,753,0,0" VerticalAlignment="Top" Height="62" Width="169" BorderBrush="#FF005737" Background="White" Foreground="#FF005737" Click="start_server_panel_click"/>
+        <TextBlock x:Name="hitokoto" Text="By LiangYin" HorizontalAlignment="Left" Margin="60,857,0,0" VerticalAlignment="Top" Width="424" Foreground="#FFBDBDBD" FontFamily="Source Han Sans CN Normal" Opacity="0.5"/>
     </Grid>
 </Window>

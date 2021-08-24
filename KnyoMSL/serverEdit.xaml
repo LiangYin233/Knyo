@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KnyoMSL"
         mc:Ignorable="d"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        Title="Knyo" Height="500" Width="800" SizeToContent="WidthAndHeight" >
+        Title="Knyo" Height="500" Width="800" SizeToContent="WidthAndHeight"  ResizeMode="CanMinimize">
     <Grid>
         <Image Source="/路径 1.png" Margin="32,39,714,423" Width="54" Height="23"></Image>
         <Border CornerRadius="15" Margin="20,84,20,22" Effect="{StaticResource EffectShadow5}" Background="White"/>
