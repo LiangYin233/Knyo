@@ -9,13 +9,15 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Threading;
 using System.Net;
+using System.Drawing;
+using Brushes = System.Windows.Media.Brushes;
+using Brush = System.Windows.Media.Brush;
 
 namespace KnyoMSL
 {
@@ -124,8 +126,26 @@ namespace KnyoMSL
                 {
                     if (!String.IsNullOrEmpty(outLine.Data))
                     {
-                        this.console_box.Text += outLine.Data + Environment.NewLine;
+                        TextRange tr = new(console_box.Document.ContentEnd,console_box.Document.ContentEnd);
+                        tr.Text = outLine.Data + "\r";
+                        Brush brush = Brushes.Black;
+                        if (outLine.Data.IndexOf("INFO") != -1)
+                            brush = System.Windows.Media.Brushes.Gray;
+                        else if (outLine.Data.IndexOf("WARN") != -1)
+                        {
+                            System.Drawing.Color drawColor = System.Drawing.Color.FromArgb(255, 245, 228, 0);
+                            brush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(drawColor.A, drawColor.R, drawColor.G, drawColor.B));
+                        }
+                        else if (outLine.Data.IndexOf("ERROR") != -1)
+                        {
+                            System.Drawing.Color drawColor = System.Drawing.Color.FromArgb(255, 214, 0, 21);
+                            brush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(drawColor.A, drawColor.R, drawColor.G, drawColor.B));
+                        }
+                        else
+                            brush = Brushes.Black;
+                        tr.ApplyPropertyValue(TextElement.ForegroundProperty, brush);
                         this.console_box.ScrollToEnd();
+                        
                     }
                   
                 };
